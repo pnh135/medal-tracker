@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section>
+        <div>
+          <h1>2024 파리 올림픽</h1>
+          <form>
+            <table>
+              <tr>
+                <td><h5>국가명</h5></td>
+                <td><h5>금메달</h5></td>
+                <td><h5>은메달</h5></td>
+                <td><h5>동메달</h5></td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" placeholder="국가 입력"></input>
+                </td>
+                <td>
+                  <input type="number"></input>
+                </td>
+                <td>
+                  <input type="number"></input>
+                </td>
+                <td>
+                  <input type="number"></input>
+                </td>
+                <td>
+                  <button>국가 추가</button>
+                  </td>
+                <td>
+                  <button>업데이트</button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

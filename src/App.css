@@ -1,1 +1,16 @@
 /*  수정 예정 */
+
+body {
+  background-color: blueviolet;
+  align-items: center;
+}
+
+ .container {
+  background-color: aquamarine;
+  justify-items: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+}

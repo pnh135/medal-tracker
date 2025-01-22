@@ -1,54 +1,94 @@
-import { useState } from "react";
+import { createElement, useState } from "react";
 import "./App.css";
 
-function App() {
-  const [submit, onSubmit] = useState(0);
 
-  // const inputMedal = () => {
-  //   onSubmit.forEach(element => {
-      
-  //   })
-  // }
+function App() {
+  const [medals, setMedals] = useState([]);
+  const [name, setName] = useState("");
+  const [gold, setGold] = useState(0);
+  const [sliver, setSliver] = useState(0);
+  const [bronze, setBronze] = useState(0);
+  
+  const addNewMedal = (e) => {
+    e.preventDefault();
+
+    if (name==="") {
+      alert ("나라 이름을 입력해주세요!")
+      return;
+    }
+
+    const newMedal = {
+      name : name,
+      gold: gold,
+      sliver: sliver,
+      bronze : bronze,
+      id : Date.now()
+    }; 
+    setMedals(
+      [
+        medals,
+        newMedal,
+      ]
+    )
+  };
+
+  const removeMedal = (filteredId) => {
+    const filteredMedal = medals.filter((medal)=> {
+      return filteredId !== medal.id ;
+    });
+
+    setMedals(filteredMedal)
+  }
+
   return (
     <>
-      <div className="container">
-        <div>
           <h1>2024 파리 올림픽</h1>
-          <form>
+          <form onSubmit={addNewMedal}>
             <table>
-              <tr>
-                <td><h5>국가명</h5></td>
-                <td><h5>금메달</h5></td>
-                <td><h5>은메달</h5></td>
-                <td><h5>동메달</h5></td>
-              </tr>
-              <tr>
+              <tbody>
+                <tr>
+                <th>국가명</th>
+                <th>금메달</th>
+                <th>은메달</th>
+                <th>동메달</th>
+              </tr> 
+                <tr>
                 <td>
-                  <input type="text" placeholder="국가 입력"></input>
+                  <input type="text" value={name} placeholder="국가 입력" onChange={(e) => setName(e.target.value)}></input>
                 </td>
                 <td>
-                  <input type="number"></input>
+                  <input type="number" value={gold} onChange={(e) => setGold(e.target.value)} ></input>
                 </td>
                 <td>
-                  <input type="number"></input>
+                  <input type="number" value={sliver} onChange={(e) => setSliver(e.target.value)}></input>
                 </td>
                 <td>
-                  <input type="number"></input>
+                  <input type="number" value={bronze} onChange={(e) => setBronze(e.target.value)}></input>
                 </td>
                 <td>
-                  <button>국가 추가</button>
+                  <button type="submit">국가 추가</button>
                   </td>
                 <td>
                   <button>업데이트</button>
                 </td>
               </tr>
+              </tbody>
             </table>
           </form>
           <div>
-            <span>아직 추가된 국가가 없습니다. 메달을 추적하세요!</span>
-          </div>
+            {/* 삼항연산자로 테이블 형성 */}
+            {medals.map((medal)=>{
+              return (
+                <ul key={medal.id} className="show-medal">
+                  <div>{medal.name}</div>
+                  <div>{medal.gold}</div>
+                  <div>{medal.sliver}</div>
+                  <div>{medal.bronze}</div>
+                  <div><button onClick={() => removeMedal(medal.id)}>삭제</button></div>
+                </ul>
+              )
+            })} 
         </div>
-      </div>
     </>
   );
 }

@@ -5,6 +5,10 @@ body {
   align-items: center;
 }
 
+.delete-btn {
+  background-color: red;
+}
+
  .show-medal {
   display: flex;
   gap: 20px;

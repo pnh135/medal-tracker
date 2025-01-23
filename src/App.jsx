@@ -8,7 +8,7 @@ function App() {
   const [gold, setGold] = useState(0);
   const [sliver, setSliver] = useState(0);
   const [bronze, setBronze] = useState(0);
-  
+ 
   const addNewMedal = (e) => {
     e.preventDefault();
 
@@ -26,10 +26,14 @@ function App() {
     }; 
     setMedals(
       [
-        medals,
+        ...medals,
         newMedal,
       ]
     )
+    setName("");
+    setGold(0);
+    setSliver(0);
+    setBronze(0);
   };
 
   const removeMedal = (filteredId) => {
@@ -78,13 +82,16 @@ function App() {
           <div>
             {/* 삼항연산자로 테이블 형성 */}
             {medals.map((medal)=>{
+              console.log(medal)
               return (
-                <ul key={medal.id} className="show-medal">
+                <ul key={medal.id}>
+                  <li key={medal.id} className="show-medal">
                   <div>{medal.name}</div>
                   <div>{medal.gold}</div>
                   <div>{medal.sliver}</div>
                   <div>{medal.bronze}</div>
                   <div><button onClick={() => removeMedal(medal.id)}>삭제</button></div>
+                </li>
                 </ul>
               )
             })} 

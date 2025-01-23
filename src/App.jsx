@@ -16,7 +16,7 @@ function App() {
     e.preventDefault();
 
     // 나라 이름이 빈칸일 때 alert 띄우기
-    if (name==="") {
+    if (!name.trim()) {
       alert ("나라 이름을 입력해주세요!")
       return;
     }
@@ -90,7 +90,18 @@ function App() {
           </form>
           <div>
             {/* 삼항연산자로 테이블 형성 */}
-            {medals.map((medal)=>{
+            <table>
+              <thead>
+                <tr>
+                <th>국가명</th>
+                <th>금메달</th>
+                <th>은메달</th>
+                <th>동메달</th>
+                <th>액션</th>
+                </tr>
+              </thead>
+              <tbody>
+              {medals.map((medal)=>{
               return (
                 // <ul key={medal.id}>
                 //   <li key={medal.id} className="show-medal">
@@ -101,17 +112,6 @@ function App() {
                 //   <div><button onClick={() => removeMedal(medal.id)}>삭제</button></div>
                 // </li>
                 // </ul>
-              
-            <table key={medal.id}>
-              <thead>
-                <tr>
-                <th>국가명</th>
-                <th>금메달</th>
-                <th>은메달</th>
-                <th>동메달</th>
-                </tr>
-              </thead>
-              <tbody>
                 <tr key={medal.id}>
                   <td>
                     {medal.name}
@@ -128,12 +128,10 @@ function App() {
                   <td>
                   <button onClick={() => removeMedal(medal.id)} className="delete-btn">삭제</button>
                   </td>
-                </tr>
-              </tbody>
-            </table>
-
-            )
+                </tr>)  
             })} 
+            </tbody>
+            </table> 
         </div>
     </>
   );

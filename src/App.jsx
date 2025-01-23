@@ -37,6 +37,12 @@ function App() {
         newMedal,
       ]
     )
+
+    // 메달을 업데이트하는 함수 
+    const updateMedal = (e) => {
+      setMedals({[e.target.name]:e.target.value});
+  };
+
     // form 제출 후 초기값으로 변경
     setName("");
     setGold(0);
@@ -51,7 +57,7 @@ function App() {
     });
     // filter로 선택한 id값의 메달을 제외하고 state에 변경
     setMedals(filteredMedal)
-  }
+  };
 
   return (
     <>
@@ -82,7 +88,7 @@ function App() {
                   <button type="submit">국가 추가</button>
                   </td>
                 <td>
-                  <button type="submit">업데이트</button>
+                  <button type="submit" >업데이트</button>
                 </td>
               </tr>
               </tbody>
@@ -90,7 +96,7 @@ function App() {
           </form>
           <div>
             {/* 삼항연산자로 테이블 형성 */}
-            <table>
+            <table className="container">
               <thead>
                 <tr>
                 <th>국가명</th>
@@ -103,15 +109,6 @@ function App() {
               <tbody>
               {medals.map((medal)=>{
               return (
-                // <ul key={medal.id}>
-                //   <li key={medal.id} className="show-medal">
-                //   <div>{medal.name}</div>
-                //   <div>{medal.gold}</div>
-                //   <div>{medal.sliver}</div>
-                //   <div>{medal.bronze}</div>
-                //   <div><button onClick={() => removeMedal(medal.id)}>삭제</button></div>
-                // </li>
-                // </ul>
                 <tr key={medal.id}>
                   <td>
                     {medal.name}

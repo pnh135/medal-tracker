@@ -9,6 +9,10 @@ body {
   background-color: red;
 }
 
+.container {
+  align-items: center;
+}
+
  .show-medal {
   display: flex;
   gap: 20px;

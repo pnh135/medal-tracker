@@ -1,7 +1,7 @@
 # 프로젝트 소개 
 <br/>
 
-![전체 이미지](https://drive.google.com/file/d/12jAiUAvA7lcpdjR8tAMdEg7IXz8RRYw8/view?usp=sharing)
+<img src ="https://drive.google.com/file/d/12jAiUAvA7lcpdjR8tAMdEg7IXz8RRYw8/view?usp=sharing"/>
 
 <br/>
 

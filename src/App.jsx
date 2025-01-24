@@ -43,14 +43,28 @@ function App() {
   // 기존에 있던 메달에서 일치하는 국가의 인덱스 가져오기 (위치를 바꾸면 안됨)
   //  새로운 값을 받아서 교체
   // 변경 값을 기존의 위치에 넣어준다
+
+  // find로 일치할 때 map으로 새 배열 만들기 
   const updateMedal = (e) => {
-      const medalIndex = medals.name.indexOf("e.value.name");
-      const changeMedal = medals.with(medalIndex, e.value)
-      console.log(medalIndex)
+    const findingName = medals.find((medal) => {
+      return e === medal.name})
+    if (findingName !== false) {
+      const findingMedal = {
+        name: name,
+        gold: gold,
+        sliver: sliver,
+        bronze: bronze,
+        id: medals.id,
+      }
+
+      return setMedals([...medals,findingMedal])
+     
+    } else {
+      alert ("입력 오류")
       return;
-      };
-      setMedals(changeMedal);
-      // setMedals((prevState) => ({...prevState, [e.target.name]: e.target.value}))
+    }
+  }
+      
 
   // 메달을 제거하는 함수
   const removeMedal = (filteredId) => {
@@ -64,7 +78,7 @@ function App() {
   return (
     <>
       <h1>2024 파리 올림픽</h1>
-      <form onSubmit={addNewMedal}>
+      <form>
         <table>
           <tbody>
             <tr>

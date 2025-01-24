@@ -19,6 +19,7 @@ body {
 }
 
 h1 {
+  margin: 0;
   padding: 20px;
   line-height: 1.1;
   color: #074277;

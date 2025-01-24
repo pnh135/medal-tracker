@@ -1,7 +1,7 @@
 # 프로젝트 소개 
 <br/>
 
-<img src ="https://drive.google.com/file/d/12jAiUAvA7lcpdjR8tAMdEg7IXz8RRYw8/view?usp=sharing"/>
+![전체이미지](https://github.com/pnh135/medal-tracker/blob/Main/medal-tracker.JPG?raw=true)
 
 <br/>
 
